@@ -33,8 +33,8 @@ Final Project, Raquel McLellan, Jessica Carns, Eliana Suarez, Solicia Xu, Steven
 
 •	Developing Presentation (Team)
 
-* Neural Network – Image Analysis (Face Recognition)
-* Heroku Development 
+Optional: Neural Network – Image Analysis (Face Recognition)
+Optional: Heroku Development 
 
 ## Datasets:
 •	Health County Ranking:

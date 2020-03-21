@@ -33,7 +33,7 @@ Final Project, Raquel McLellan, Jessica Carns, Eliana Suarez, Solicia Xu, Steven
 
 •	Developing Presentation (Team)
 
-*Neural Network – Image Analysis (Face Recognition)
+* Neural Network – Image Analysis (Face Recognition)
 * Heroku Development 
 
 ## Datasets:

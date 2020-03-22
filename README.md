@@ -3,7 +3,7 @@ Final Project, Raquel McLellan, Jessica Carns, Eliana Suarez, Solicia Xu, Steven
 
 
 
-## Team Title: 
+## Team Name: 
     Health Care Viz Architects 
 
 ## Objective: 

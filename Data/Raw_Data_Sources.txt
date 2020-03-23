@@ -1,0 +1,7 @@
+DATA SOURCES FOR DATA ANALYTICS FINAL PROJECT
+
+http://countyhealthrankings.org/app/
+
+
+Denton Country GeoJSON File for Texas
+https://og-production-open-data-dentontx-892364687672.s3.amazonaws.com/resources/be1b384f-3b2e-4238-88a8-4410cb36f7fc/c8efcc13-b5b4-48b5-9873-933844822d6ctexascounties.geojson?Signature=UUXyw28WGtkCRH7gKXvOWEJX0Fs%3D&Expires=1584758967&AWSAccessKeyId=AKIAJJIENTAPKHZMIPXQ

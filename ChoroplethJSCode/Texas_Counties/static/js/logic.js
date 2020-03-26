@@ -107,7 +107,7 @@ function updateMap() {
         layer.bindPopup(
           features.properties.County + " " + features.properties.Year +
           `<br>${Metric}:<br>` +
-          features.properties.Metric 
+          Metric
         )
         //console.log(features.properties.Years_Potential_Life_Lost_Per_100K)
       }

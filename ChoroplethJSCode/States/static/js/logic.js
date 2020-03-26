@@ -18,7 +18,7 @@ L.tileLayer(
 
 //Found that the us-states.js data file is not authentic geojson! Found https://jsonlint.com/ for a validation tool
 //to determine problems with formatting. Last line had a semicolon, which is NOT accepted in geojson. Removed = working!
-var geoData = "static/data/statesData2.geojson";
+var geoData = "static/data/2019_StatesTest.geojson";
 
 var geojson;
 
@@ -26,9 +26,9 @@ var geojson;
 d3.json(geoData, function(data) {
 
   //Test that data extraction is working for statesData.geojson file.
-  console.log(data);
-  console.log(data.features);
-  console.log(data.features[0].properties.density);
+  // console.log(data);
+  // console.log(data.features);
+  // console.log(data.features[0].properties.All_Determinants_Rank);
 
   // data.features.forEach(function(item) {
   //   var density = item.properties.density
@@ -47,7 +47,7 @@ d3.json(geoData, function(data) {
     //This would be why every other state is so low that, compared to DC, they would be at the bottom of the
     //color scale. Extraction using valueProperty: "density" worked because density was in the properties 
     //dictionary.
-    valueProperty: "density",
+    valueProperty: "All_Determinants_Rank",
 
     //Set color scale
     scale: ["blue", "green", "yellow", "red"],
@@ -66,14 +66,14 @@ d3.json(geoData, function(data) {
     
 
     // Binding a pop-up to each layer
-    onEachFeature: function (feature, layer) {
+    onEachFeature: function (features, layer) {
       layer.bindPopup(
-        feature.properties.name +
-        "<br>Population Density:<br>" +
-        feature.properties.density
+        features.properties.State +
+        "<br>Total_HealthCare_Ranking:<br>" +
+        features.properties.All_Determinants_Rank
         
       );
-      console.log(feature.properties.density)
+      console.log(features.properties.All_Determinants_Rank)
     }
   }).addTo(myMap);
 
@@ -89,7 +89,7 @@ d3.json(geoData, function(data) {
 
     // Add min & max
     var legendInfo =
-      '<h1>Population Density</h1>' +
+      '<h1>Total_HealthCare_Ranking</h1>' +
       '<div class="labels">' +
       '<div class="min">' +
       limits[0] +

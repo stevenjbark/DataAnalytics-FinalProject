@@ -18,7 +18,7 @@ L.tileLayer(
 
 //Found that the us-states.js data file is not authentic geojson! Found https://jsonlint.com/ for a validation tool
 //to determine problems with formatting. Last line had a semicolon, which is NOT accepted in geojson. Removed = working!
-var geoData = "static/data/2019_StatesTest.geojson";
+var geoData = "static/data/2019_States_Health_Data.geojson";
 
 var geojson;
 
@@ -47,7 +47,7 @@ d3.json(geoData, function(data) {
     //This would be why every other state is so low that, compared to DC, they would be at the bottom of the
     //color scale. Extraction using valueProperty: "density" worked because density was in the properties 
     //dictionary.
-    valueProperty: "All_Determinants_Rank",
+    valueProperty: "%_Fair/Poor_Health",
 
     //Set color scale
     scale: ["blue", "green", "yellow", "red"],
@@ -68,12 +68,12 @@ d3.json(geoData, function(data) {
     // Binding a pop-up to each layer
     onEachFeature: function (features, layer) {
       layer.bindPopup(
-        features.properties.State +
-        "<br>Total_HealthCare_Ranking:<br>" +
-        features.properties.All_Determinants_Rank
+        features.properties.State + " " + features.properties.Year +
+        "<br>%_Fair/Poor_Health:<br>"
+        //features.properties.%_Fair/Poor_Health
         
-      );
-      console.log(features.properties.All_Determinants_Rank)
+      )
+      //console.log(features.properties.%_Fair/Poor_Health)
     }
   }).addTo(myMap);
 
@@ -89,7 +89,7 @@ d3.json(geoData, function(data) {
 
     // Add min & max
     var legendInfo =
-      '<h1>Total_HealthCare_Ranking</h1>' +
+      '<h1>%_Fair/Poor_Health</h1>' +
       '<div class="labels">' +
       '<div class="min">' +
       limits[0] +

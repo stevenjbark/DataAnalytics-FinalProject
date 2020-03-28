@@ -18,7 +18,11 @@ L.tileLayer(
 
 //Found that the us-states.js data file is not authentic geojson! Found https://jsonlint.com/ for a validation tool
 //to determine problems with formatting. Last line had a semicolon, which is NOT accepted in geojson. Removed = working!
-var geoData = "static/data/statesData2.geojson";
+<<<<<<< HEAD
+var geoData = "static/data/2019_States_Health_Data.geojson";
+=======
+var geoData = "static/data/2020_States_Health_Data.geojson";
+>>>>>>> Steve
 
 var geojson;
 
@@ -26,19 +30,22 @@ var geojson;
 d3.json(geoData, function(data) {
 
   //Test that data extraction is working for statesData.geojson file.
+<<<<<<< HEAD
+  // console.log(data);
+  // console.log(data.features);
+  // console.log(data.features[0].properties.All_Determinants_Rank);
+=======
   console.log(data);
   console.log(data.features);
-  console.log(data.features[0].properties.density);
+  console.log(data.features[0].properties.Years_Potential_Life_Lost_Per_100K);
+>>>>>>> Steve
 
-  // data.features.forEach(function(item) {
-  //   var density = item.properties.density
-  //   console.log(density)
-  //})
 
   // //As Justin's example, create new chloropleth layer
   geojson = L.choropleth(data, {
 
     
+<<<<<<< HEAD
     //Define a property to in the features to use. The statesData has "density" for population density in
     //data.features.properties.density, but features has an array that must be interated through! Use the
     //data.features.forEach as above. Didn't work, but Kirby and I found that the density value for DC was
@@ -47,7 +54,11 @@ d3.json(geoData, function(data) {
     //This would be why every other state is so low that, compared to DC, they would be at the bottom of the
     //color scale. Extraction using valueProperty: "density" worked because density was in the properties 
     //dictionary.
-    valueProperty: "density",
+    valueProperty: "%_Fair/Poor_Health",
+=======
+    //Define a property to in the features to use. These features are the health data properties in GeoJSON file.
+    valueProperty: "Years_Potential_Life_Lost_Per_100K",
+>>>>>>> Steve
 
     //Set color scale
     scale: ["blue", "green", "yellow", "red"],
@@ -66,14 +77,19 @@ d3.json(geoData, function(data) {
     
 
     // Binding a pop-up to each layer
-    onEachFeature: function (feature, layer) {
+    onEachFeature: function (features, layer) {
       layer.bindPopup(
-        feature.properties.name +
-        "<br>Population Density:<br>" +
-        feature.properties.density
+        features.properties.State + " " + features.properties.Year +
+<<<<<<< HEAD
+        "<br>%_Fair/Poor_Health:<br>"
+        //features.properties.%_Fair/Poor_Health
+=======
+        "<br>Years_Potential_Life_Lost_Per_100K:<br>" +
+        features.properties.Years_Potential_Life_Lost_Per_100K
+>>>>>>> Steve
         
-      );
-      console.log(feature.properties.density)
+      )
+      //console.log(features.properties.%_Fair/Poor_Health)
     }
   }).addTo(myMap);
 
@@ -89,7 +105,11 @@ d3.json(geoData, function(data) {
 
     // Add min & max
     var legendInfo =
-      '<h1>Population Density</h1>' +
+<<<<<<< HEAD
+      '<h1>%_Fair/Poor_Health</h1>' +
+=======
+      '<h1>Years_Potential_Life_Lost_Per_100K</h1>' +
+>>>>>>> Steve
       '<div class="labels">' +
       '<div class="min">' +
       limits[0] +

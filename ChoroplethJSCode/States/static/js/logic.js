@@ -18,7 +18,7 @@ L.tileLayer(
 
 //Found that the us-states.js data file is not authentic geojson! Found https://jsonlint.com/ for a validation tool
 //to determine problems with formatting. Last line had a semicolon, which is NOT accepted in geojson. Removed = working!
-var geoData = "static/data/2019_States_Health_Data.geojson";
+var geoData = "static/data/2020_States_Health_Data.geojson";
 
 var geojson;
 

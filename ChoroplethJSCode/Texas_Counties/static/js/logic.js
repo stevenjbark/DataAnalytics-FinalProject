@@ -1,10 +1,6 @@
 //Adapting code from Project 2, no URL needed for geojson files. Use D3 to select dropdown menu 
 //information and open proper file.
 
-<<<<<<< HEAD
-
-=======
->>>>>>> Steve
 // Creating map object
   var myMap = L.map('map', {
     center: [30.3, -99.0],
@@ -26,8 +22,6 @@
 
 
 
-<<<<<<< HEAD
-=======
 //Create initial function
 function init() {
 
@@ -119,7 +113,6 @@ function init() {
  })
 
 };
->>>>>>> Steve
 
 
 
@@ -128,11 +121,6 @@ function init() {
 //d3.select("#button").on("click", location.reload());
 
 //Event handler for dropdown menu change and update of map from Year Input.
-<<<<<<< HEAD
-d3.select("#selYear").on("change", updateMap);
-
-//Event handler for dropdown menu change and update of map from Health Metric Input.
-=======
 //d3.select("#selYear").on("change", updateMap);
 //d3.select("#selYear").on("change", location.reload());
 d3.select("#selYear").on("change", updateMap);
@@ -140,24 +128,16 @@ d3.select("#selYear").on("change", updateMap);
 
 //Event handler for dropdown menu change and update of map from Health Metric Input.
 //d3.select("#selHealthMetric").on("change", location.reload());
->>>>>>> Steve
 d3.select("#selHealthMetric").on("change", updateMap)
 
 
 
-<<<<<<< HEAD
-//Create function to updateMap
-function updateMap() {
-
-
-=======
 
 //Create function to updateMap
 function updateMap() {
 
   d3.selectAll("g > *").remove();
   d3.select("#leaflet-right > *").remove();
->>>>>>> Steve
 
   //SELECTION DATA FROM DROPDOWN MENUS
   //Select dropdown menu and assign to variable dropdownYear.
@@ -168,10 +148,7 @@ function updateMap() {
   var Year = dropdownYear.property("value");
   console.log(Year);
 
-<<<<<<< HEAD
-=======
   
->>>>>>> Steve
 
   //Health Data from Dropdown Menu
   //Select health data dropdown menu and assign to variable dropdownMetric.
@@ -227,11 +204,7 @@ function updateMap() {
         layer.bindPopup(
           features.properties.County + " " + features.properties.Year +
           `<br>${Metric}:<br>` +
-<<<<<<< HEAD
-          features.properties.Metric 
-=======
           features.properties.Metric
->>>>>>> Steve
         )
         //console.log(features.properties.Years_Potential_Life_Lost_Per_100K)
       }
@@ -278,8 +251,4 @@ function updateMap() {
 
 };
 
-<<<<<<< HEAD
-updateMap()
-=======
 init()
->>>>>>> Steve

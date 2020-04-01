@@ -68,9 +68,9 @@ function updateMap(Year, Metric) {
         //Binding a pop-up to each layer
         onEachFeature: function (features, layer) {
             layer.bindPopup(
-            features.properties.County + " " + features.properties.Year +
+            features["properties"]["County"] + " " + features["properties"]["Year"] +
             `<br>${Metric}:<br>` +
-            features.properties.Metric
+            features["properties"][`${Metric}`]
             )
         //console.log(features.properties.Years_Potential_Life_Lost_Per_100K)
       }

@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 #MONGODB CONNECTION AND ACCESS OF DATABASE COLLECTIONS
 #Setup MongoDB connection as in scrape_mars.py. Conn = connection port info, 
-#client is connection client.
+#client is connection client. Note: Using flask_pymongo, so this code is different than pymongo.
 app.config["MONGO_URI"] = "mongodb://localhost:27017/ProjectHealth_DB"
 mongo = PyMongo(app)
 
@@ -15,12 +15,6 @@ mongo = PyMongo(app)
 StateData = mongo.db.StateData
 CountyData = mongo.db.CountyData
 
-
-#ROUTES FOR INDEX AND DATA URLS
-#Route to render the index.html page with data from the ACAData_DB database
-# @app.route("/")
-# def index():
-#     return render_template("index.html")
 
 #SETUP API'S FOR ACCESSING DATA IN MongoDB. 
 #The find({}, {"_id":0}) basically amends find() to select everything (first {} set), 
@@ -67,17 +61,25 @@ def process_input(data):
     
     return df
 
-#SETUP MAIN INDEX PAGE TO INCLUDE REGRESSION MODEL
-@app.route("/", methods=["GET", "POST"])
+#ROUTES FOR INDEX AND DATA URLS
+#Route to render the index.html page with data from the ACAData_DB database
+@app.route("/")
 def index():
+    return render_template("index.html")
+
+#SETUP MAIN INDEX PAGE TO INCLUDE REGRESSION MODEL
+#This can be another route with index.html above ("/" and render_template("index.html") and 
+#this route being "/other_route_name" and render_template("otherpage.html")
+@app.route("/models", methods=["GET", "POST"])
+def models():
     if request.method == "POST":
         load_model()
         input_data = request.form.to_dict()
         newdata = process_input(input_data)
         value = RFmodel.predict(newdata)
-        return render_template("index.html", result=value)
+        return render_template("models.html", result=value)
 
-    return render_template("index.html")
+    return render_template("models.html")
 
 
 if __name__ == "__main__":

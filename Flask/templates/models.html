@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" http-equiv="encoding">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>TestPage</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+
+<!-- Navbar as a link -->
+<div class="container">
+  <!-- <div class="row">
+      <div class="box"> -->
+      <nav class="navbar-custom navbar-expand-sm">
+          <a id="aa1" class="navbar-brand" href="#">HealthCare</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                  <a class="nav-item" href="/">HomePage</a>
+                  <a class="nav-item" href="/models">ModelsPage</a>
+              </div>
+          </div>
+      </nav>
+      </div>
+  </div>
+</div><br>
+
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1>Test HTML Page</h1>
+        <h2>Headlines, Panels, Bootstrap, CSS, D3, Plotly, </h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 text-center">
+        <div class="well">
+          <h4>Test Subject ID</h4>
+          <select id="selDataset"></select>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Demographic Info</h3>
+          </div>
+          <div id="sample-metadata" class="panel-body"></div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div id="bar"></div>
+      </div>
+      <div class="col-md-5">
+        <div id="gauge"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="bubble"></div>
+      </div>
+    </div>
+
+    <div class="row">
+        <table border=1>
+
+          <thead>
+            <tr>
+              <td>Table Header 1</td>
+              <td>Table Header 2</td>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td id="high">108593</td>
+              <td id="low">101384</td>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <h2>An Optimized Random Forest Regression Model for Predicing County Health Ranking</h2>
+      <p>The healthcare rankings for all 254 counties in Texas from 2015-2020 were used to construct a Random Forest
+        regression model consisting of 500 randomized decision trees. The model was initially trained on all health
+        data metrics (>50 different metrics) to determine relative importances for model parameters. The top 10 model 
+        parameters were then used to construct an optimized regression model with almost equivalent performance to the 
+        use of all health data metrics. Below is a deployment of this optimized Random Forest Regression Model. To 
+        submit data from your county or to explore these parameters, enter the health data metrics into the fields
+        below as floating-point numbers to predict the ranking based on these parameters.  
+      </p>
+
+      <h2>Enter Health Data Metrics</h2>
+      <form method=post enctype="multipart/form-data">
+        <label for="Premature_Age_Adjusted_Mortality_per_100K">Premature_Age_Adjusted_Mortality_per_100K:</label>
+        <input type="text" id="Mortality" name="Mortality"><br>
+        <label for="Percent_Ppl_Under65_w/o_Insurance">Percent_Ppl_Under65_w/o_Insurance:</label>
+        <input type="text" id="NoInsurance" name="NoInsurance"><br>
+        <label for="Percent_Children_Living_in_Poverty">Percent_Children_Living_in_Poverty:</label>
+        <input type="text" id="ChildPoverty" name="ChildPoverty"><br>
+        <label for="Percent_Adult_Smokers" name="Percent_Adult_Smokers">Percent_Adult_Smokers:</label>
+        <input for="text" id="AdultSmokers" name="AdultSmokers"><br>
+        <label for="Percent_American_Indian_or_Alaskan_Native">Percent_American_Indian_or_Alaskan_Native:</label>
+        <input type="text" id="Demographics" name="Demographics"><br>
+        <label for="Graduation_Rate">Graduation_Rate:</label>
+        <input type="text" id="Graduation" name="Graduation"><br>
+        <label for="Median_Household_Income">Median_Household_Income(MHI):</label>
+        <input type="text" id="MHI" name="MHI"><br>
+        <label for="Percent_Low_Birthweight_Births">Percent_Low_Birthweight_Births:</label>
+        <input type="text" id="LowBirthweight" name="LowBirthweight"><br>
+        <label for="Teen_Birth_Rate">Teen_Birth_Rate:</label>
+        <input type="text" id="TeenBirth" name="TeenBirth"><br>
+        <label for="Percent_Pop_w/o_Adequate_Access_to_Food">Percent_Pop_w/o_Adequate_Access_to_Food:</label>
+        <input type="text" id="FoodAccess" name="FoodAccess"><br>
+        
+
+        <input type=submit value=Submit> 
+      </form>
+      <h4>Predicted Ranking by Random Forest Model: {{ result }}</h4>
+
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="static/js/testlogic.js"></script>
+
+</body>
+
+</html>

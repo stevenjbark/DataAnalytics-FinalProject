@@ -18,7 +18,7 @@ d3.json(url).then(function(data) {
 
     //Initial menu option should be "California"
     var cell = dropdownMenu.append("option");
-    cell.text("California");
+    cell.text("Texas");
 
     //Loop through states for appending to dropdownMenu below "State"
     states.forEach(function(newState) {

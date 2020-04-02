@@ -81,15 +81,66 @@ def County():
 
 
 #LOAD OF K Nearest Neighbors MODEL (KNNLocationType.pkl)
-def load_model():
+def load_model_KNN_locationtype():
     global KNNLocationType
     with open("./models/KNN_locationtype_model.pkl", "rb") as rf:
         KNNLocationType = pickle.load(rf)
         print("KNN Loaded")
 
+def load_model_KNN_type():
+    global KNNType
+    with open("./models/KNN_type_model.pkl", "rb") as rf:
+        KNNType = pickle.load(rf)
+        print("KNN Loaded")
+
+def load_model_KNN_location():
+    global KNNLocation
+    with open("./models/KNN_location_model.pkl", "rb") as rf:
+        KNNLocation = pickle.load(rf)
+        print("KNN Loaded")
+
+
+#TAKE CONVERT VALUES FROM KNN MODEL TO TEXT
+def process_locationtype(data):
+    if data == 1:
+        value1text = "Permanent"
+    elif data == 2:
+        value1text = "Seasonal"
+    else:
+        value1text="Mobile Van"
+    
+    return value1text
+
+def process_type(data):
+    if data == 1:
+        value2text = "Service Delivery Site"
+    elif data == 2:
+        value2text = "Administrative"
+    else:
+        value2text="Administrative/Service Delivery Site"
+    
+    return value2text
+
+def process_location(data):
+    if data == 1:
+        value3text = "Hospital"
+    elif data == 2:
+        value3text = "Nursing Home"
+    elif data == 3:
+        value3text = "School"
+    elif data == 4:
+        value3text = "Domestic Violence"
+    elif data == 5:
+        value3text = "Correctional Facility"
+    elif data == 6:
+        value3text = "All Other Clinic Types"                
+    else:
+        value3text="Unknown"
+    
+    return value3text
 
 #TAKE INPUT AND PROCESS DATA FOR SUBMISSION TO KNN MODEL
-def process_input(data):
+def process_inputKNN(data):
 
     #Convert to dataframe for processing
     df = pd.DataFrame([data])
@@ -112,11 +163,19 @@ def process_input(data):
 @app.route("/", methods=["GET", "POST"])
 def index():
     if request.method == "POST":
-        load_model()
-        input_data = request.form.to_dict()
-        newdata = process_input(input_data)
-        value = KNNLocationType.predict(newdata)
-        return render_template("index.html", result=value)
+        load_model_KNN_locationtype()
+        load_model_KNN_type()
+        load_model_KNN_location()
+        input_dataKNN = request.form.to_dict()
+        newdataKNN = process_inputKNN(input_dataKNN)
+        value1 = KNNLocationType.predict(newdataKNN)
+        text1 = process_locationtype(value1)
+        value2 = KNNType.predict(newdataKNN)
+        text2 = process_type(value2)
+        value3 = KNNLocation.predict(newdataKNN)
+        text3 = process_location(value3)
+
+        return render_template("index.html", result1=text1,result2=text2,result3=text3)
 
     return render_template("index.html")
 

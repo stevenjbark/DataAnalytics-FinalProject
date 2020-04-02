@@ -99,7 +99,7 @@ def process_input(data):
     df["Mortality"] = df["Mortality"].astype(float)
     df["NoInsurance"] = df["NoInsurance"].astype(float)
     df["ChildPoverty"] = df["ChildPoverty"].astype(float)
-    df["EthnicMinority"] = df["EthnicMinority"].astype(float)
+    df["Demographics"] = df["Demographics"].astype(float)
     df["TeenBirth"] = df["TeenBirth"].astype(float)
     df["Graduation"] = df["Graduation"].astype(float)
     df["MHI"] = df["MHI"].astype(float)
@@ -115,7 +115,7 @@ def index():
         load_model()
         input_data = request.form.to_dict()
         newdata = process_input(input_data)
-        value = KNNLocationType(newdata)
+        value = KNNLocationType.predict(newdata)
         return render_template("index.html", result=value)
 
     return render_template("index.html")

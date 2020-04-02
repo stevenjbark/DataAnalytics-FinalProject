@@ -39,7 +39,7 @@ d3.json(url).then(function(data) {
 
     //Initial option should be 2019
     var cell = dropdownMenuCounty.append("option");
-    // cell.text("Harris");
+    // cell.text("Orange");
 
     //If I just looped as above, there will be 52 lines for every year in the data.
     //Create an array, then append to that array, then remove duplicates!

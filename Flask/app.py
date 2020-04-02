@@ -35,6 +35,11 @@ def County():
     return jsonify(county_data)
 
 
+@app.route("/tableau")
+def tableau():
+    return render_template("tableau.html")
+
+
 
 
 if __name__ == "__main__":

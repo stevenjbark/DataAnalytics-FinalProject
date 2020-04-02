@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macros %}
+{% block body %}
+
+
+{{ macros.navbar() }}
+
+<div class="container">
+    <div class="jumbotron shadow-lg p-3 mb-5 bg-light">
+      <h1 class="display-3">Machine Learning Models</h1>
+    </div>
+    <!-- Start of website -->
+        <div class="row">
+          <div class="col-12">  
+              <h2>Access to Health Services and Outcomes on teh Community</h2>
+          </div>
+        </div>
+            
+            <hr>
+            <div class="row">
+              <div class="col-6">
+              <h2>An Optimized Random Forest Regression Model for Predicing County Health Ranking</h2>
+              <p>The healthcare rankings for all 254 counties in Texas from 2015-2020 were used to construct a Random Forest
+                regression model consisting of 500 randomized decision trees. The model was initially trained on all health
+                data metrics (>50 different metrics) to determine relative importances for model parameters. The top 10 model 
+                parameters were then used to construct an optimized regression model with almost equivalent performance to the 
+                use of all health data metrics. Below is a deployment of this optimized Random Forest Regression Model. To 
+                submit data from your county or to explore these parameters, enter the health data metrics into the fields
+                below as floating-point numbers to predict the ranking based on these parameters.  
+              </p>
+              </div>
+              <div class="col-6">
+              <h2>Enter Health Data Metrics</h2>
+              <form method=post enctype="multipart/form-data">
+                <label for="Premature_Age_Adjusted_Mortality_per_100K">Premature_Age_Adjusted_Mortality_per_100K:</label>
+                <input type="text" id="Mortality" name="Mortality"><br>
+                <label for="Percent_Ppl_Under65_w/o_Insurance">Percent_Ppl_Under65_w/o_Insurance:</label>
+                <input type="text" id="NoInsurance" name="NoInsurance"><br>
+                <label for="Percent_Children_Living_in_Poverty">Percent_Children_Living_in_Poverty:</label>
+                <input type="text" id="ChildPoverty" name="ChildPoverty"><br>
+                <label for="Percent_Adult_Smokers" name="Percent_Adult_Smokers">Percent_Adult_Smokers:</label>
+                <input for="text" id="AdultSmokers" name="AdultSmokers"><br>
+                <label for="Percent_American_Indian_or_Alaskan_Native">Percent_American_Indian_or_Alaskan_Native:</label>
+                <input type="text" id="Demographics" name="Demographics"><br>
+                <label for="Graduation_Rate">Graduation_Rate:</label>
+                <input type="text" id="Graduation" name="Graduation"><br>
+                <label for="Median_Household_Income">Median_Household_Income(MHI):</label>
+                <input type="text" id="MHI" name="MHI"><br>
+                <label for="Percent_Low_Birthweight_Births">Percent_Low_Birthweight_Births:</label>
+                <input type="text" id="LowBirthweight" name="LowBirthweight"><br>
+                <label for="Teen_Birth_Rate">Teen_Birth_Rate:</label>
+                <input type="text" id="TeenBirth" name="TeenBirth"><br>
+                <label for="Percent_Pop_w/o_Adequate_Access_to_Food">Percent_Pop_w/o_Adequate_Access_to_Food:</label>
+                <input type="text" id="FoodAccess" name="FoodAccess"><br>
+                
+        
+                <input type=submit value=Submit> 
+              </form>
+              <h4>Predicted Ranking by Random Forest Model: {{ result }}</h4>
+            </div>
+            <hr>
+        <div class="row">
+          <div class="col-12">
+              <h2>KNN</h2>
+              <p>Qualitative Data</p>
+            <hr>
+          </div>
+        </div>
+
+            <!-- section for image cards to data sources -->
+        <div class="row">
+            <div class="col-6">
+                <div class="card">
+            <div id="section3">
+              <h2>Process</h2>
+              <p>During our analysis, we found challenges in the consistency of the data as it was reported and stored across the historical years.  
+                Particularly challenging was the Medicaid enrollment data from the years 2013 - 2016 before CMS began consistently providing CSV files 
+                on their site.  Additionally, we found challenges in the data provided as more metrics were added the years since initial reporting began.  
+                We found a similar issue in the metrics for the state Health Rankings as the United Health Foundation has added more elements as they have 
+                become available during the same time range.  Due to this, we found our focus on what elements we could compare let to those items which 
+                were reported consistently during all years.</p>
+                      
+            </div>
+            <hr>
+          </div>
+        </div>
+        
+            <!-- section for image cards to data sources -->
+        <div class="row">
+            <div class="col-6">
+            <div id="section5">
+              <div class="card">
+                <img class="card-img-top" src="https://www.americashealthrankings.org/assets/images/AHR_30years_horizontal.png" alt="Card image cap">
+                <div class="card-body">
+                  <hr>
+                  <p class="card-text">Data source for health metrics over time used in our project.</p>
+                </div>
+                <hr>
+                <div class="card-body">
+                  <a href="https://www.americashealthrankings.org/about/methodology/introduction" class="card-link">Learn more about the metrics here!</a>
+                </div>
+              </div>
+            </div>  
+            <div class="col-6">
+            <div class="card">
+              <br>
+              <img class="card-img-top" src="https://medicaid.gov/resources/images/logos/logo-MedicaidGov.svg" alt="Card image cap">
+              <br>
+              <div class="card-body">
+                <hr>
+                <p class="card-text">Data source for medicaid enrollment and state expansion data used in our project.</p>
+              </div>
+              <hr>
+              <div class="card-body">
+                <a href="https://www.medicaid.gov/medicaid/national-medicaid-chip-program-information/medicaid-chip-enrollment-data/monthly-medicaid-chip-application-eligibility-determination-and-enrollment-reports-data/index.html" class="card-link">Monthly enrollment datasets available here!</a>
+              </div>
+            </div>
+
+            </div>
+
+        </div>
+       <hr>
+
+          
+          </div>
+        </div>
+       <hr>
+
+       {{ macros.footer() }}
+    </div>
+
+{% endblock %}

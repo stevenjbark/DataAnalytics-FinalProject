@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macros %}
+{% block body %}
+
+
+{{ macros.navbar() }}
+
+<div class="container">
+  
+    <div class="jumbotron shadow-lg p-3 mb-5 bg-light">
+      <h1 class="display-3">About Our Project</h1>
+      <div class="col-6">
+        <h2>Our Questions</h2>
+        <h4>Aggregate and Normalize Data</h4>
+        <h4>Can we create clear consistent visulations?</h4>
+        <h4>How can we use data to understand problems? </h4>
+      </div>
+
+    </div>
+    <div class="card border-0 shadow my-5">
+      <div class="card-body p-5">
+    <!-- Start of website -->
+        <div class="row">
+          <div class="col-12">
+          <!-- Empty div where the viz will be placed -->
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div id="section4">
+              <h2>Inspiration</h2>
+              <p>We elected to review the states electing to expand medicaid in the time since the exchanges were enacted in 2014.  
+                In our analysis, we choose to review the states by the health rankings performed annually by the United Health Foundation 
+                across multiple metrics grouped by behavioral, community and environment, policy, and clinical care to determine the 
+                health outcomes of the states.  By connecting the outcomes to states adopting to expand access to care through the 
+                Medicaid Expansion associated with the Affordable Care Act, we could see trends on how many of the lower ranked states 
+                were those who elected not to offer expand Medicaid.  However, there are states still electing to do so as of this year 
+                and others who elected but have not enacted the expansion in the dataset.</p>
+            </div>
+            </div>
+            </div>
+            <hr>
+        <div class="row">
+          <div class="col-12">
+            <div id="section3">
+              <h2>Process</h2>
+              <p>During our analysis, we found challenges in the consistency of the data as it was reported and stored across the historical years.  
+                Particularly challenging was the Medicaid enrollment data from the years 2013 - 2016 before CMS began consistently providing CSV files 
+                on their site.  Additionally, we found challenges in the data provided as more metrics were added the years since initial reporting began.  
+                We found a similar issue in the metrics for the state Health Rankings as the United Health Foundation has added more elements as they have 
+                become available during the same time range.  Due to this, we found our focus on what elements we could compare let to those items which 
+                were reported consistently during all years.</p>
+                      
+            </div>
+            <hr>
+          </div>
+        </div>
+        
+            <!-- section for image cards to data sources -->
+        <div class="row">
+            <div class="col-6">
+            <div id="section5">
+              <div class="card">
+                <img class="card-img-top" src="https://www.americashealthrankings.org/assets/images/AHR_30years_horizontal.png" alt="Card image cap">
+                <div class="card-body">
+                  <hr>
+                  <p class="card-text">Data source for health metrics over time used in our project.</p>
+                </div>
+                <hr>
+                <div class="card-body">
+                  <a href="https://www.americashealthrankings.org/about/methodology/introduction" class="card-link">Learn more about the metrics here!</a>
+                </div>
+              </div>
+            </div>  
+            </div>
+            <div class="col-6">
+            <div class="card">
+              <br>
+              <img class="card-img-top" src="https://medicaid.gov/resources/images/logos/logo-MedicaidGov.svg" alt="Card image cap">
+              <br>
+              <div class="card-body">
+                <hr>
+                <p class="card-text">Data source for medicaid enrollment and state expansion data used in our project.</p>
+              </div>
+              <hr>
+              <div class="card-body">
+                <a href="https://www.medicaid.gov/medicaid/national-medicaid-chip-program-information/medicaid-chip-enrollment-data/monthly-medicaid-chip-application-eligibility-determination-and-enrollment-reports-data/index.html" class="card-link">Monthly enrollment datasets available here!</a>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        </div>
+       <hr>
+
+       {{ macros.footer() }}
+{% endblock %}

@@ -10,35 +10,49 @@
   <div class="container">
     <div class="jumbotron shadow-lg p-3 mb-5 bg-light">
       <div class="row">
-      <div class="col-sm-12">
+      <div class="col-sm-2" id="myScrollspy"> 
+        <div class="list-group">
+          <a class="list-group-item list-group-item-action active" href="#section1">Overview</a>
+          <a class="list-group-item list-group-item-action" href="#section2">Comparison</a>
+          <a class="list-group-item list-group-item-action" href="#section3">Data</a>
+          <!-- <a class="list-group-item list-group-item-action" href="#section4">Data</a> -->
+      </div>
+      </div>
+      <div class="col-sm-10">
         <h1 class="display-3">Healthcare in The U.S.</h1>
         <p class="lead text-capitalize">How the Expansion of Medicaid after ACA Impacted the States</p>
       </div>
     </div>
   </div>
+
+
+  
   
   <!-- Start of website -->
-
-  <div class="card-deck">
-    <div class="card bg-primary">
-      <div class="card-body text-center">
-        <p class="card-text">Some text inside the first card</p>
-      </div>
-    </div>
-    <div class="card bg-warning">
-      <div class="card-body text-center">
-        <p class="card-text">Some text inside the second card</p>
-      </div>
-    </div>
-    <div class="card bg-success">
-      <div class="card-body text-center">
-        <p class="card-text">Some text inside the third card</p>
-      </div>
-    </div>
-  </div>
     <div class="row">
+        <div class="col-10">
+          <div class="card border-0 shadow my-5">
             <div class="card-body p-5">
           <div id="section1 ">
+            <div class='tableauPlaceholder' id='viz1585707703074' style='position: relative'>
+              <noscript>
+                <a href='#'>
+                  <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;He&#47;HealthFactorsRelationshipandDemographics-AccesstoAdequateFood&#47;RelationshipbetweenAccesstoAdequateFoodandUnhealthyBehaviours&#47;1_rss.png' style='border: none' />
+                </a>
+              </noscript>
+                <object class='tableauViz'  style='display:none;'>
+                  <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                  <param name='embed_code_version' value='3' /> 
+                  <param name='site_root' value='' />
+                  <param name='name' value='HealthFactorsRelationshipandDemographics-AccesstoAdequateFood&#47;RelationshipbetweenAccesstoAdequateFoodandUnhealthyBehaviours' />
+                  <param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;He&#47;HealthFactorsRelationshipandDemographics-AccesstoAdequateFood&#47;RelationshipbetweenAccesstoAdequateFoodandUnhealthyBehaviours&#47;1.png' /> 
+                  <param name='animate_transition' value='yes' />
+                  <param name='display_static_image' value='yes' />
+                  <param name='display_spinner' value='yes' />
+                  <param name='display_overlay' value='yes' />
+                  <param name='display_count' value='yes' />
+                </object>
+              </div>           
           <h3>State Health Ranking by Year</h3>
           <h5>Select Year</h5> 
           <select id="selChoroYear">
@@ -51,7 +65,8 @@
           </select>
           <div id="map"></div>
         </div>
- 
+        </div>
+    </div>
         <hr>
           <div id="section2">
                     <h2>Let's Compare Outcomes</h2>
@@ -123,11 +138,11 @@
               <h4>Select State and Metric</h4><select id="selStateData"></select>
               <select id="selectButton"></select><br><br>
                     <div class="row">
-                        <div id="myChart" width="550" height="400"></div>
+                                <div id="myChart" width="550" height="400"></div>
                     </div>
-                            </div>
                               </div>
-                        </div>
+                              </div>
+                          </div>
                       </div>
                    </div>     
                 </div>
@@ -137,4 +152,14 @@
        </div>
    
 
+     <hr>
+  {{ macros.footer() }}
+<<<<<<< HEAD
+
 {% endblock %}
+      </div>
+=======
+    </div>
+
+{% endblock %}
+>>>>>>> c28ece0... Trying to fix files

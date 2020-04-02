@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macros %}
+{% block body %}
+
+
+{{ macros.navbar() }}
+
+<body onload="initViz();">
+    <div class="container">
+        <div class="row">
+            <div id="vizContainer" style="width:800px; height:700px;">
+            </div>
+</div>
+</div>
+
+</body>
+<hr>
+
+{{ macros.footer() }}
+
+
+{% endblock %}

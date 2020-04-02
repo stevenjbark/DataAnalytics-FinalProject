@@ -71,6 +71,25 @@
         <div class="row">
             <div class="col-6">
                 <div class="card">
+            <div id="section3">
+              <h2>Process</h2>
+              <p>During our analysis, we found challenges in the consistency of the data as it was reported and stored across the historical years.  
+                Particularly challenging was the Medicaid enrollment data from the years 2013 - 2016 before CMS began consistently providing CSV files 
+                on their site.  Additionally, we found challenges in the data provided as more metrics were added the years since initial reporting began.  
+                We found a similar issue in the metrics for the state Health Rankings as the United Health Foundation has added more elements as they have 
+                become available during the same time range.  Due to this, we found our focus on what elements we could compare let to those items which 
+                were reported consistently during all years.</p>
+                      
+            </div>
+            <hr>
+          </div>
+        </div>
+        
+            <!-- section for image cards to data sources -->
+        <div class="row">
+            <div class="col-6">
+            <div id="section5">
+              <div class="card">
                 <img class="card-img-top" src="https://www.americashealthrankings.org/assets/images/AHR_30years_horizontal.png" alt="Card image cap">
                 <div class="card-body">
                   <hr>
@@ -102,5 +121,12 @@
         </div>
        <hr>
 
+          
+          </div>
+        </div>
+       <hr>
+
+       {{ macros.footer() }}
+    </div>
 
 {% endblock %}

@@ -9,8 +9,6 @@
     <div class="jumbotron shadow-lg p-3 mb-5 bg-light">
       <h1 class="display-3">Machine Learning Models</h1>
     </div>
-    <div class="card border-0 shadow my-5">
-      <div class="card-body p-5">
     <!-- Start of website -->
         <div class="row">
           <div class="col-12">  
@@ -19,11 +17,46 @@
         </div>
             
             <hr>
-        <div class="row">
-          <div class="col-12">
-              <h2>Random Forest</h2>
-              <p> Quantifying Data </p>
-            </div>
+            <div class="row">
+              <div class="col-6">
+              <h2>An Optimized Random Forest Regression Model for Predicing County Health Ranking</h2>
+              <p>The healthcare rankings for all 254 counties in Texas from 2015-2020 were used to construct a Random Forest
+                regression model consisting of 500 randomized decision trees. The model was initially trained on all health
+                data metrics (>50 different metrics) to determine relative importances for model parameters. The top 10 model 
+                parameters were then used to construct an optimized regression model with almost equivalent performance to the 
+                use of all health data metrics. Below is a deployment of this optimized Random Forest Regression Model. To 
+                submit data from your county or to explore these parameters, enter the health data metrics into the fields
+                below as floating-point numbers to predict the ranking based on these parameters.  
+              </p>
+              </div>
+              <div class="col-6">
+              <h2>Enter Health Data Metrics</h2>
+              <form method=post enctype="multipart/form-data">
+                <label for="Premature_Age_Adjusted_Mortality_per_100K">Premature_Age_Adjusted_Mortality_per_100K:</label>
+                <input type="text" id="Mortality" name="Mortality"><br>
+                <label for="Percent_Ppl_Under65_w/o_Insurance">Percent_Ppl_Under65_w/o_Insurance:</label>
+                <input type="text" id="NoInsurance" name="NoInsurance"><br>
+                <label for="Percent_Children_Living_in_Poverty">Percent_Children_Living_in_Poverty:</label>
+                <input type="text" id="ChildPoverty" name="ChildPoverty"><br>
+                <label for="Percent_Adult_Smokers" name="Percent_Adult_Smokers">Percent_Adult_Smokers:</label>
+                <input for="text" id="AdultSmokers" name="AdultSmokers"><br>
+                <label for="Percent_American_Indian_or_Alaskan_Native">Percent_American_Indian_or_Alaskan_Native:</label>
+                <input type="text" id="Demographics" name="Demographics"><br>
+                <label for="Graduation_Rate">Graduation_Rate:</label>
+                <input type="text" id="Graduation" name="Graduation"><br>
+                <label for="Median_Household_Income">Median_Household_Income(MHI):</label>
+                <input type="text" id="MHI" name="MHI"><br>
+                <label for="Percent_Low_Birthweight_Births">Percent_Low_Birthweight_Births:</label>
+                <input type="text" id="LowBirthweight" name="LowBirthweight"><br>
+                <label for="Teen_Birth_Rate">Teen_Birth_Rate:</label>
+                <input type="text" id="TeenBirth" name="TeenBirth"><br>
+                <label for="Percent_Pop_w/o_Adequate_Access_to_Food">Percent_Pop_w/o_Adequate_Access_to_Food:</label>
+                <input type="text" id="FoodAccess" name="FoodAccess"><br>
+                
+        
+                <input type=submit value=Submit> 
+              </form>
+              <h4>Predicted Ranking by Random Forest Model: {{ result }}</h4>
             </div>
             <hr>
         <div class="row">
@@ -34,49 +67,6 @@
           </div>
         </div>
 
-
-        <div class="row">
-          <h2>An Optimized Random Forest Regression Model for Predicing County Health Ranking</h2>
-          <p>The healthcare rankings for all 254 counties in Texas from 2015-2020 were used to construct a Random Forest
-            regression model consisting of 500 randomized decision trees. The model was initially trained on all health
-            data metrics (>50 different metrics) to determine relative importances for model parameters. The top 10 model 
-            parameters were then used to construct an optimized regression model with almost equivalent performance to the 
-            use of all health data metrics. Below is a deployment of this optimized Random Forest Regression Model. To 
-            submit data from your county or to explore these parameters, enter the health data metrics into the fields
-            below as floating-point numbers to predict the ranking based on these parameters.  
-          </p>
-    
-          <h2>Enter Health Data Metrics</h2>
-          <form method=post enctype="multipart/form-data">
-            <label for="Premature_Age_Adjusted_Mortality_per_100K">Premature_Age_Adjusted_Mortality_per_100K:</label>
-            <input type="text" id="Mortality" name="Mortality"><br>
-            <label for="Percent_Ppl_Under65_w/o_Insurance">Percent_Ppl_Under65_w/o_Insurance:</label>
-            <input type="text" id="NoInsurance" name="NoInsurance"><br>
-            <label for="Percent_Children_Living_in_Poverty">Percent_Children_Living_in_Poverty:</label>
-            <input type="text" id="ChildPoverty" name="ChildPoverty"><br>
-            <label for="Percent_Adult_Smokers" name="Percent_Adult_Smokers">Percent_Adult_Smokers:</label>
-            <input for="text" id="AdultSmokers" name="AdultSmokers"><br>
-            <label for="Percent_American_Indian_or_Alaskan_Native">Percent_American_Indian_or_Alaskan_Native:</label>
-            <input type="text" id="Demographics" name="Demographics"><br>
-            <label for="Graduation_Rate">Graduation_Rate:</label>
-            <input type="text" id="Graduation" name="Graduation"><br>
-            <label for="Median_Household_Income">Median_Household_Income(MHI):</label>
-            <input type="text" id="MHI" name="MHI"><br>
-            <label for="Percent_Low_Birthweight_Births">Percent_Low_Birthweight_Births:</label>
-            <input type="text" id="LowBirthweight" name="LowBirthweight"><br>
-            <label for="Teen_Birth_Rate">Teen_Birth_Rate:</label>
-            <input type="text" id="TeenBirth" name="TeenBirth"><br>
-            <label for="Percent_Pop_w/o_Adequate_Access_to_Food">Percent_Pop_w/o_Adequate_Access_to_Food:</label>
-            <input type="text" id="FoodAccess" name="FoodAccess"><br>
-            
-    
-            <input type=submit value=Submit> 
-          </form>
-          <h4>Predicted Ranking by Random Forest Model: {{ result }}</h4>
-    
-        </div>
-      </div>
-        
             <!-- section for image cards to data sources -->
         <div class="row">
             <div class="col-6">
@@ -92,7 +82,6 @@
                 </div>
               </div>
             </div>  
-            </div>
             <div class="col-6">
             <div class="card">
               <br>
@@ -110,60 +99,8 @@
 
             </div>
 
-          
-          </div>
         </div>
        <hr>
 
-       {{ macros.footer() }}
-    </div>
 
 {% endblock %}
-
-    <div class="row">
-      <h2>An Optimized Random Forest Regression Model for Predicing County Health Ranking</h2>
-      <p>The healthcare rankings for all 254 counties in Texas from 2015-2020 were used to construct a Random Forest
-        regression model consisting of 500 randomized decision trees. The model was initially trained on all health
-        data metrics (>50 different metrics) to determine relative importances for model parameters. The top 10 model 
-        parameters were then used to construct an optimized regression model with almost equivalent performance to the 
-        use of all health data metrics. Below is a deployment of this optimized Random Forest Regression Model. To 
-        submit data from your county or to explore these parameters, enter the health data metrics into the fields
-        below as floating-point numbers to predict the ranking based on these parameters.  
-      </p>
-
-      <h2>Enter Health Data Metrics</h2>
-      <form method=post enctype="multipart/form-data">
-        <label for="Premature_Age_Adjusted_Mortality_per_100K">Premature_Age_Adjusted_Mortality_per_100K:</label>
-        <input type="text" id="Mortality" name="Mortality"><br>
-        <label for="Percent_Ppl_Under65_w/o_Insurance">Percent_Ppl_Under65_w/o_Insurance:</label>
-        <input type="text" id="NoInsurance" name="NoInsurance"><br>
-        <label for="Percent_Children_Living_in_Poverty">Percent_Children_Living_in_Poverty:</label>
-        <input type="text" id="ChildPoverty" name="ChildPoverty"><br>
-        <label for="Percent_Adult_Smokers" name="Percent_Adult_Smokers">Percent_Adult_Smokers:</label>
-        <input for="text" id="AdultSmokers" name="AdultSmokers"><br>
-        <label for="Percent_American_Indian_or_Alaskan_Native">Percent_American_Indian_or_Alaskan_Native:</label>
-        <input type="text" id="Demographics" name="Demographics"><br>
-        <label for="Graduation_Rate">Graduation_Rate:</label>
-        <input type="text" id="Graduation" name="Graduation"><br>
-        <label for="Median_Household_Income">Median_Household_Income(MHI):</label>
-        <input type="text" id="MHI" name="MHI"><br>
-        <label for="Percent_Low_Birthweight_Births">Percent_Low_Birthweight_Births:</label>
-        <input type="text" id="LowBirthweight" name="LowBirthweight"><br>
-        <label for="Teen_Birth_Rate">Teen_Birth_Rate:</label>
-        <input type="text" id="TeenBirth" name="TeenBirth"><br>
-        <label for="Percent_Pop_w/o_Adequate_Access_to_Food">Percent_Pop_w/o_Adequate_Access_to_Food:</label>
-        <input type="text" id="FoodAccess" name="FoodAccess"><br>
-        
-
-        <input type=submit value=Submit> 
-      </form>
-      <h4>Predicted Ranking by Random Forest Model: {{ result }}</h4>
-
-    </div>
-  </div>
-
-  
-
-</body>
-
-</html>

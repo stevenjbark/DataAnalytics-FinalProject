@@ -42,7 +42,8 @@
   version on public.tableau.com, online.tableau.com, or your on-prem Server -->
     <script src="https://www.example.com/javascripts/api/tableau-2.js"></script>
     <script type="text/javascript"
-	    src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+        src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+        <script src="{{ url_for('static', filename='js/testlogic.js') }}"></script>
     <script src="{{ url_for('static', filename='js/tableau.js') }}"></script>
     <script src="{{ url_for('static', filename='js/map.js') }}"></script>
     <script src="{{ url_for('static', filename='js/comparison.js') }}"></script>

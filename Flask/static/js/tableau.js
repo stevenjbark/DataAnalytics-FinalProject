@@ -9,15 +9,6 @@
                     console.log("Run this code when the viz has finished loading.");
                 }
             };
-            // // Health Behaviours and Health Outcomes
-            // var containerOutcomes = document.getElementById("vizOutcomes"),
-            // url = "https://public.tableau.com/views/HealthBehavioursandHealthOutcomes/PercentExcessiveDrinking?:display_count=y&publish=yes&:origin=viz_share_link",
-            // options = {
-            //     hideTabs: true,
-            //     onFirstInteractive: function () {
-            //         console.log("Run this code when the viz has finished loading.");
-            //     }
-            // };
 
         var viz = new tableau.Viz(containerDiv, url, options);
         // Create a viz object and embed it in the container div.
